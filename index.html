@@ -136,23 +136,11 @@
     let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 if (isMobile) {
-  // Hiển thị hộp thư ngay khi trang được tải
-  window.onload = function() {
-    mailBox.classList.add('active');
-    boxmail.classList.add('active');
-  }
+    function toggleCard2Content() {
+            card2Content.classList.toggle('show');
+    }
 
-  // Đóng hộp thư khi nhấn vào biểu tượng "x"
-  close.addEventListener('click', function() {
-    boxmail.classList.remove('active');
-  });
-} else {
-  // Hiển thị hộp thư khi nhấp vào biểu tượng phong bì
-  mailBox.addEventListener('click', function() {
-    mailBox.classList.toggle('active');
-    boxmail.classList.add('active');
-  });}
-
+}
     close.addEventListener('click', function(){
         boxmail.classList.remove('active');
     });
