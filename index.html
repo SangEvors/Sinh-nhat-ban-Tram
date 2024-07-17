@@ -133,15 +133,30 @@
         boxmail.classList.add('active');
     }
 
+    let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+  // Hiển thị hộp thư ngay khi trang được tải
+  window.onload = function() {
+    mailBox.classList.add('active');
+    boxmail.classList.add('active');
+  }
+
+  // Đóng hộp thư khi nhấn vào biểu tượng "x"
+  close.addEventListener('click', function() {
+    boxmail.classList.remove('active');
+  });
+} else {
+  // Hiển thị hộp thư khi nhấp vào biểu tượng phong bì
+  mailBox.addEventListener('click', function() {
+    mailBox.classList.toggle('active');
+    boxmail.classList.add('active');
+  });}
+
     close.addEventListener('click', function(){
         boxmail.classList.remove('active');
     });
 
-    // Add click event listener to the card2 element for mobile devices
-    function toggleCard2Content() {
-        if (window.innerWidth <= 767) {
-            card2Content.classList.toggle('show');
-        }
-    }
+ 
     </script>
 </html>
